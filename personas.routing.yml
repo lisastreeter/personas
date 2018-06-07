@@ -1,0 +1,87 @@
+entity.persona.collection:
+  path: '/admin/people/personas'
+  defaults:
+    _entity_list: 'persona'
+    _title: 'Personas'
+  requirements:
+    _permission: 'administer personas'
+
+persona.add:
+  path: '/admin/people/personas/add'
+  defaults:
+    _entity_form: persona.default
+    _title: 'Add Persona'
+  requirements:
+    _permission: 'administer personas'
+
+entity.persona.edit_form:
+  path: '/admin/people/personas/manage/{persona}'
+  defaults:
+    _entity_form: persona.default
+    _title: 'Edit Persona'
+  requirements:
+    _entity_access: persona.update
+
+entity.persona.delete_form:
+  path: '/admin/people/personas/manage/{persona}/delete'
+  defaults:
+    _entity_form: persona.delete
+    _title: 'Delete Persona'
+  requirements:
+    _entity_access: persona.delete
+
+entity.persona_realm.collection:
+  path: '/admin/people/realms'
+  defaults:
+    _entity_list: 'persona_realm'
+    _title: 'Realms'
+  requirements:
+    _permission: 'administer realms'
+
+entity.persona_realm.add_form:
+  path: '/admin/people/realms/add'
+  defaults:
+    _entity_form: persona_realm.default
+    _title: 'Add Realm'
+  requirements:
+    _permission: 'administer realms'
+
+entity.persona_realm.edit_form:
+  path: '/admin/people/realms/manage/{persona_realm}'
+  defaults:
+    _entity_form: persona_realm.default
+    _title: 'Edit Realm'
+  requirements:
+    _entity_access: persona_realm.update
+
+entity.persona_realm.delete_form:
+  path: '/admin/people/realms/manage/{persona_realm}/delete'
+  defaults:
+    _entity_form: persona_realm.delete
+    _title: 'Delete Realm'
+  requirements:
+    _entity_access: persona_realm.delete
+
+entity.persona_realm.realm_roles_form:
+  path: '/admin/people/realms/manage/{persona_realm}/roles'
+  defaults:
+    _form: 'Drupal\personas\Form\RealmRolesForm'
+    _title_callback: 'Drupal\personas\Controller\RealmController::realmTitle'
+  requirements:
+    _entity_access: 'persona_realm.view'
+
+entity.persona_realm.add_role_form:
+  path: '/admin/people/realms/manage/{persona_realm}/roles/add'
+  defaults:
+    _controller: '\Drupal\personas\Controller\RealmController::addRole'
+    _title: 'Add realm role/responsibility'
+  requirements:
+    _permission: 'administer permissions'
+
+entity.persona_realm.permissions_form:
+  path: '/admin/people/realms/manage/{persona_realm}/permissions'
+  defaults:
+    _form: '\Drupal\personas\Form\UserPermissionsRealmForm'
+    _title: 'Manage permissions'
+  requirements:
+    _permission: 'administer permissions'

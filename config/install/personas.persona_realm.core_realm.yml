@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - personas
+id: core_realm
+label: 'Core realm'
+description: 'The core realm includes all roles without an assigned realm. All permissions are visible.'
+weight: 0
+permissions: {  }

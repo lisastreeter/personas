@@ -1,0 +1,14 @@
+services:
+  personas.batch_processor:
+    class: Drupal\personas\Batch\Processor
+    arguments: ['@entity_type.manager']
+
+  personas.realm_permissions:
+    class: Drupal\personas\RealmPermissionHandler
+    arguments: ['@module_handler', '@string_translation', '@controller_resolver']
+
+  personas.route_subscriber:
+    class: Drupal\personas\Routing\RouteSubscriber
+    tags:
+      - { name: event_subscriber }
+

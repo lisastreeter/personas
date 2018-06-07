@@ -1,0 +1,51 @@
+personas.persona.*:
+  type: config_entity
+  label: 'Persona configuration'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    uuid:
+      type: string
+    roles:
+      type: sequence
+      label: 'Roles'
+      sequence:
+        type: string
+        label: 'Role'
+
+personas.persona_realm.*:
+  type: config_entity
+  label: 'Persona realm settings'
+  mapping:
+    uuid:
+      type: string
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    description:
+      type: label
+      label: 'Description'
+    weight:
+      type: integer
+      label: 'Realm weight'
+    permissions:
+      type: sequence
+      label: 'Permissions'
+      sequence:
+        type: string
+        label: 'Permission'
+
+user.role.*.third_party.personas:
+  type: mapping
+  label: 'Personas user role settings'
+  mapping:
+    realm:
+      type: string
+      label: 'Realm'

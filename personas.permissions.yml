@@ -1,0 +1,15 @@
+administer personas:
+  title: Administer personas
+  restrict access: true
+
+view user personas:
+  title: View user personas
+  restrict access: true
+
+administer realms:
+  title: Administer realms
+  restrict access: true
+
+view user role realms:
+  title: View user role realms
+  restrict access: true
